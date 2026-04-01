@@ -126,10 +126,10 @@ export const metadata: Metadata = {
 
 // ✅ CORRECCIÓN
 export const metadata: Metadata = {
-  title: "Kanban Board | Project Sync",
+  title: "Kanban Board | PROJECT KANBAN",
   description: "Collaborative Kanban board for task management and team workflow optimization",
   openGraph: {
-    title: "Kanban Board - Project Sync",
+    title: "Kanban Board - PROJECT KANBAN",
     description: "Manage your projects with visual task cards and real-time updates",
     type: "website",
   },
@@ -347,7 +347,7 @@ async function api<T>(input: string | Request, init?: RequestInit): Promise<T>
 
 // 2. layout.tsx línea 12-14
 export const metadata: Metadata = {
-  title: "Kanban Board | Project Sync",
+  title: "Kanban Board | PROJECT KANBAN",
   description: "Collaborative Kanban board for task management",
 };
 ```

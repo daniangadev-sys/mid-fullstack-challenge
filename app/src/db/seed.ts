@@ -8,7 +8,7 @@ async function main() {
     .insert(boards)
     .values({
       name: "Q4 Product Launch",
-      description: "Project Sync example board",
+      description: "PROJECT KANBAN example board",
       createdAt: now,
     })
     .returning();
