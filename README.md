@@ -71,78 +71,37 @@ Include appropriate indexes and a seed script that creates one board with sample
 4. Loading and empty states
 
 
-### Current Implementation Status
+### Submission Instructions
 
-- [x] Create and view boards (`GET/POST /api/boards`, UI `pages/board/[id]`)
-- [x] Add columns to a board (`POST /api/columns`, `Add Column` UI)
-- [x] Create, update, delete tasks (`POST/PATCH/DELETE /api/tasks`, UI forms)
-- [x] Move tasks between columns (dropdown move action)
-- [x] Kanban board layout with columns side-by-side (`src/app/board/[id]/BoardClient.tsx`)
-- [x] DB schema in `src/db/schema.ts` (boards, columns, tasks with timestamps)
-- [x] Seed script `bun run seed` (`src/db/seed.ts`)
-- [x] Input validation with Zod in endpoints
-- [x] Proper HTTP status codes and JSON structure
+* **Fork this repository**, complete your work, and **submit a pull request**.
+* Include a `README.md` with:
+  * Clear instructions to run the project locally
+  * A short explanation of your architecture or design decisions
+  * A seed script to preload sample data
 
 
-### Installation local
+### Time Expectation
 
-1. Clonar repo:
+You should spend no more than **2 hours** on this task.
 
-```bash
-git clone https://github.com/<TU_USUARIO>/MId-Fullstack-TechnicalTest.git
-cd MId-Fullstack-TechnicalTest/app
-```
-
-2. Instalar dependencias:
-
-```bash
-bun install
-```
-
-3. (Opcional) definir base de datos local:
-
-```bash
-set DATABASE_URL=file:./local.db
-```
-
-4. Sembrar datos de ejemplo:
-
-```bash
-bun run seed
-```
-
-5. Ejecutar:
-
-```bash
-bun run dev
-```
-
-6. Abrir en el navegador:
-
-`http://localhost:3000/board/1`
+Don't worry if you can't finish everything. What matters most is **how far you get** and **how you approach the problem**.
 
 
-### Endpoints
+### Evaluation & Guidance
 
-- GET `/api/boards`
-- POST `/api/boards`
-- GET `/api/boards/:id`
-- DELETE `/api/boards/:id`
-- POST `/api/columns`
-- POST `/api/tasks`
-- PATCH `/api/tasks/:id`
-- DELETE `/api/tasks/:id`
+What we mainly evaluate:
 
+- Solution design and structure (architecture, modularity, separation of concerns).
+- Clarity of reasoning and documentation (decisions, trade-offs, assumptions).
+- Code quality (readability, consistency, error handling, good practices).
+- API design (RESTful conventions, validation, error responses).
+- UI completeness and usability.
+- Git workflow (incremental commits with clear messages).
+- Prioritization and scope management: it's valid to leave items pending if you explain what and why.
 
-### Scripts disponibles
+Use of AI (optional but allowed):
 
-- `bun run dev`: Inicia servidor dev
-- `bun run build`: Construcción
-- `bun run start`: Ejecutar producción
-- `bun run seed`: Crea datos de prueba
-- `npm run lint`: ESLint
-
-
-### Notas adicionales
-
-- La meta es que este README sea idéntico al planteamiento original de la prueba, con el estado del proyecto descrito en forma de lista de verificación.
+- You may use AI tools (e.g., Claude, Copilot, ChatGPT, Cursor) to assist with your solution.
+- We care most about how you structure the solution and explain your decisions.
+- If you used AI, add a brief note in your PR/README: which tools you used, which parts were assisted, and what changes you made after review.
+- Only include code you understand and can justify.
