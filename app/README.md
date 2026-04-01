@@ -37,10 +37,10 @@ La selección de herramientas se basó en la búsqueda de rendimiento, tipado fu
 Este proyecto integró un flujo de trabajo asistido por múltiples modelos de IA, actuando como arquitecto y supervisor del código generado:
 
 1. **Diseño y Mockup**: Utilicé Gemini para la conceptualización inicial y la generación del mockup visual de la interfaz.
-2. **Configuración de Entorno (Cursor)**: Cursor funcionó como tutor para la configuración de Bun, herramienta con la que no tenía experiencia previa extensiva, optimizando la gestión de dependencias y scripts.
+2. **Configuración de Entorno (Cursor)**: Cursor funcionó como tutor para la configuración de Bun, herramienta con la que no tenía experiencia previa extensiva, optimizando la gestión de dependencias y scripts. Además, Cursor me asistió en la generación del código para la configuración de Drizzle y el esquema de la base de datos (`src/db/client.ts` y `src/db/schema.ts`), facilitando la integración rápida y correcta del ORM con SQLite.
 3. **Estructura y Productividad (Copilot)**: Se utilizó Copilot para la generación de estructuras repetitivas y la definición de la jerarquía de carpetas siguiendo el patrón de App Router.
 4. **Lógica y Validación (DeepSeek)**: Me encargué de la programación lógica de las APIs y utilicé DeepSeek para resolver dudas técnicas específicas durante el proceso de codificación.
-5. **Revisión de Calidad (Claude)**: Claude actuó como revisor final de código para verificar que no existiera sobreingeniería y asegurar la limpieza del software.
+5. **Revisión de Calidad (Claude)**: Claude actuó como revisor final de código para verificar que no existiera sobreingeniería, asegurar limpieza y seguridad del software.
 
 ## Guía de Instalación Local
 
