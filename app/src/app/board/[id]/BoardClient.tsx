@@ -385,7 +385,7 @@ export function BoardClient({
               <LayoutGrid className="h-4 w-4" />
             </span>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-zinc-900">PROJECT SYNC</p>
+              <p className="text-sm font-semibold text-zinc-900">PROJECT KANBAN</p>
               <p className="text-xs text-zinc-500">My Boards</p>
             </div>
           </div>
@@ -442,7 +442,7 @@ export function BoardClient({
               </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium text-zinc-900">
-                  Dana G.
+                  DevSys
                 </p>
                 <select
                   value={role}
@@ -457,7 +457,7 @@ export function BoardClient({
           </div>
         </aside>
 
-        <main className="flex-1">
+        <main className="flex-1 bg-white">
           <div className="w-full px-6 pt-10">
             <header className="flex items-center gap-3">
               <h1 className="text-2xl font-semibold text-zinc-900">
