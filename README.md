@@ -1,27 +1,90 @@
-# Mid Fullstack Technical Test
+## Technical Challenge — Mid-Level
 
-Kanban board built with:
+### Background
 
-- Next.js (App Router)
-- Bun (package manager + runtime)
-- SQLite + Drizzle ORM
-- TailwindCSS
-- Zod for validation
+A small project management startup wants to build a simple internal tool for their team to organize work visually. They need a basic task board where team members can create boards, organize tasks into columns, and move tasks between stages.
 
-## Requisitos (cubiertos)
+In this challenge, you'll build a simplified task board application with a REST API, a database, and a functional UI.
 
-- Create and view boards: implementado en `/api/boards` y UI `/board/[id]`
-- Add columns to a board: `/api/columns` y UI con botón `Add Column`
-- Create/update/delete tasks: `/api/tasks` + UI formulación + acciones
-- Move tasks between columns: dropdown con `onMoveTask`
-- Kanban board layout: columnas columna lado a lado en `BoardClient`
-- DB schema: `src/db/schema.ts` con boards/columns/tasks + timestamps
-- Seed script: `bun run seed` en `package.json` (ejecuta `src/db/seed.ts`)
-- Input validation: Zod en cada endpoint
-- HTTP codes correctos: 400/404/201 etc
-- JSON responses consistentes
+We are **not evaluating specific tools or patterns**. We simply want to understand how you think, how you code, and how you approach real-world problems. Be yourself.
 
-## Instalación local
+
+### What You Need to Build
+
+A functional **full stack application** with the ability to:
+
+1. Create and view boards
+2. Add columns to a board
+3. Create, update, and delete tasks within columns
+4. Move tasks between columns
+5. View a board in a kanban-style layout
+
+
+### Database Schema
+
+Design the schema yourself. At minimum, you should support:
+
+- **Boards** with a name and creation date
+- **Columns** belonging to a board, with a name and display order
+- **Tasks** belonging to a column, with: title, description, priority, and creation date
+
+Include appropriate indexes and a seed script that creates one board with sample data.
+
+
+### Tech Stack
+
+#### Backend
+
+* Runtime: **Bun**
+* Framework: **Next.js** (App Router)
+* Database: **SQLite** (ORM, query builder, or raw SQL — your choice)
+
+#### Frontend
+
+* Framework: **Next.js**
+* Styling: **TailwindCSS**
+* Additional UI libraries are welcome but not required
+
+
+### Required API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/boards` | List all boards |
+| POST | `/api/boards` | Create a board |
+| GET | `/api/boards/:id` | Get a board with its columns and tasks |
+| POST | `/api/columns` | Create a column (linked to a board) |
+| POST | `/api/tasks` | Create a task (linked to a column) |
+| PATCH | `/api/tasks/:id` | Update a task (title, description, move to another column) |
+| DELETE | `/api/tasks/:id` | Delete a task |
+
+- Validate input on every endpoint.
+- Return proper HTTP status codes (400, 404, etc.).
+- Use a consistent JSON response structure.
+
+
+### Required UI
+
+1. A page showing a board in **kanban-style layout** (columns side by side, tasks as cards)
+2. Ability to **create a new task** via a modal or dialog
+3. Ability to **move a task** between columns (a simple dropdown is fine, no drag-and-drop required)
+4. Loading and empty states
+
+
+### Current Implementation Status
+
+- [x] Create and view boards (`GET/POST /api/boards`, UI `pages/board/[id]`)
+- [x] Add columns to a board (`POST /api/columns`, `Add Column` UI)
+- [x] Create, update, delete tasks (`POST/PATCH/DELETE /api/tasks`, UI forms)
+- [x] Move tasks between columns (dropdown move action)
+- [x] Kanban board layout with columns side-by-side (`src/app/board/[id]/BoardClient.tsx`)
+- [x] DB schema in `src/db/schema.ts` (boards, columns, tasks with timestamps)
+- [x] Seed script `bun run seed` (`src/db/seed.ts`)
+- [x] Input validation with Zod in endpoints
+- [x] Proper HTTP status codes and JSON structure
+
+
+### Installation local
 
 1. Clonar repo:
 
@@ -58,7 +121,8 @@ bun run dev
 
 `http://localhost:3000/board/1`
 
-## Endpoints
+
+### Endpoints
 
 - GET `/api/boards`
 - POST `/api/boards`
@@ -69,7 +133,8 @@ bun run dev
 - PATCH `/api/tasks/:id`
 - DELETE `/api/tasks/:id`
 
-## Scripts disponibles
+
+### Scripts disponibles
 
 - `bun run dev`: Inicia servidor dev
 - `bun run build`: Construcción
@@ -77,16 +142,7 @@ bun run dev
 - `bun run seed`: Crea datos de prueba
 - `npm run lint`: ESLint
 
-## Diseño técnico y decisiones
 
-1. **Backend**: Next.js App Router con rutas API en `src/app/api`.
-2. **ORM**: Drizzle, con relaciones y cascada de borrado.
-3. **Validación**: Zod en cada ruta API para `body` y `params`.
-4. **Frontend**: React client component en `src/app/board/[id]/BoardClient.tsx`.
-5. **UI**: Kanban simple, tareas con dropdown para mover entre columnas.
+### Notas adicionales
 
-## Notas adicionales
-
-- Se agregó `onDeleteBoard` para borrar un board completo.
-- El control de roles `tech-lead/jr` está presente para habilitar botones.
-- `app/.gitignore` incluye `local.db` y `*.db` para evitar versionar la base de datos local.
+- La meta es que este README sea idéntico al planteamiento original de la prueba, con el estado del proyecto descrito en forma de lista de verificación.
