@@ -54,13 +54,18 @@ export default async function BoardPage({
   const activeId = Number(id);
   const board = await getBoard(id);
 
-  await ensureSchema();
-  const allBoards = await db.select().from(boardsTable);
-  const boardList: BoardSummary[] = allBoards.map((b) => ({
-    id: b.id,
-    name: b.name,
-    description: b.description,
-  }));
+  const h = await headers();
+  const host = h.get("host");
+  const proto = h.get("x-forwarded-proto") ?? "http";
+  const baseUrl = host ? `${proto}://${host}` : "";
+
+  const boardsRes = await fetch(`${baseUrl}/api/boards`, {
+    cache: "no-store",
+  });
+  if (!boardsRes.ok) {
+    throw new Error(`Failed to load boards (${boardsRes.status})`);
+  }
+  const boardList = (await boardsRes.json()) as BoardSummary[];
 
   return (
     <BoardClient
